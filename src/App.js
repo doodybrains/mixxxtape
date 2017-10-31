@@ -39,7 +39,7 @@ class App extends Component {
   }
 
   getSrc() {
-    const {sources, titles} = this.state;
+    const {sources} = this.state;
     const sourceArray = sources.slice();
 
     axios.get(`https://api.are.na/v2/channels/${mixtapeChannel}/contents`).then((response) => {
