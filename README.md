@@ -1,3 +1,9 @@
-to use your own are.a channel just change the mixtape const in App.js on line 5
+to use your own are.a channel add the channel name to end of the url
 
-const mixtapeChannel = "name-of-channel";
+##for example
+
+```https://mixxxtape.herokuapp.com/#/name-of-channel```
+
+#OR
+
+```http://localhost:3000/#/name-of-channel```
