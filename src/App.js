@@ -8,8 +8,7 @@ class App extends Component {
     super();
 
     this.state = {
-      sources: [],
-      videoSrcs: []
+      sources: []
     }
   }
 
@@ -18,16 +17,21 @@ class App extends Component {
   }
 
   render() {
-    const {sources, videoSrcs} = this.state;
+    const {sources} = this.state;
 
     return (
       <div className="App">
-        <h1>m i x t a p e [youtube only]</h1>
+        <h1>m i x t a p e</h1>
         <p>{sources.length} tracks</p>
         <div className="videos">
           {sources.map((src, i) => {
             return(
-              <iframe src={src} frameBorder="0"></iframe>
+              <div key={i} className="video">
+                <div id={i} data-name="frame" className="frame" dangerouslySetInnerHTML={{__html: src.embed.html}}></div>
+                <input id={`${i}-checkbox`}type="checkbox" onClick={this.vidPlaying.bind(this, i)} className="overlay" />
+                <label>{src.title}</label>
+              </div>
+
             );
           })}
         </div>
@@ -35,11 +39,30 @@ class App extends Component {
     );
   }
 
+  vidPlaying(i) {
+    let srcauto = '';
+    const clicked = document.getElementById(i);
+    const checkbox = document.getElementById(i+"-checkbox");
+    const iframe = clicked.innerHTML;
+    const regex = /(src)=["']([^"']*)["']/gi;
+
+    if (checkbox.checked === true) {
+      iframe.replace(regex, function(all, type, value) {
+        srcauto = value += "&autoplay=1";
+      });
+      clicked.innerHTML = `<iframe src="${srcauto}"></iframe>`;
+    } else {
+      iframe.replace(regex, function(all, type, value) {
+        srcauto = value += "&autoplay=0";
+      });
+      clicked.innerHTML = `<iframe src="${srcauto}"></iframe>`;
+    }
+  }
+
   getSrc() {
     const {sources} = this.state;
     const sourceArray = sources.slice();
     let mixtapeChannel = "/mixtape-1509221468";
-
     if (this.props.location.pathname !== '/') {
       mixtapeChannel = this.props.location.pathname;
     }
@@ -48,20 +71,13 @@ class App extends Component {
       const res = response.data.contents;
 
       res.map((item) => {
-        if (item.source) {
-          if (item.source.url.match(/youtube\.com/)) {
-            let videoId = item.source.url.split('v=')[1];
-            let amp = videoId.indexOf('&');
-            if (amp != -1) {
-              videoId = videoId.substring(0, amp);
-            }
-            sourceArray.push(`https://www.youtube.com/embed/${videoId}`)
+        if (item.embed) {
+          if (item.embed.html) {
+            sourceArray.push(item)
             this.setState({ sources: sourceArray})
           }
         }
       })
-
-      this.getVideoSrcs();
     }).catch(error => console.error(error))
   }
 }
