@@ -28,7 +28,7 @@ class App extends Component {
         <div className="videos">
           {videoSrcs.map((src, i) => {
             return(
-              <video width="400" controls>
+              <video key={i} width="400" controls>
                 <source src={src} type="video/mp4" />
               </video>
             );
