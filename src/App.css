@@ -24,7 +24,7 @@ body {
 
 .videos iframe {
   width: 100%;
-
+  padding: 20px;
 }
 
 @media screen and (min-width: 768px) {
