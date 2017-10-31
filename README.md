@@ -1,4 +1,4 @@
-up and running here:
+work in progress up and running here:
 
 https://mixxxtape.herokuapp.com
 
@@ -8,11 +8,12 @@ for example
 
 ```https://mixxxtape.herokuapp.com/#/name-of-channel```
 
-or
-
-```http://localhost:3000/#/name-of-channel```
-
-
 ^^^ make sure to refresh ^^^
 
 accepting PRs
+
+**built w/ create-react-app + are.na api
+
+to run locally:
+npm install
+npm run start
