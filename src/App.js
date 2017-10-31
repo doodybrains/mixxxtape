@@ -50,12 +50,12 @@ class App extends Component {
       res.map((item) => {
         if (item.source) {
           if (item.source.url.match(/youtube\.com/)) {
-            let video_id = item.source.url.split('v=')[1];
-            let ampersandPosition = video_id.indexOf('&');
-            if(ampersandPosition != -1) {
-              video_id = video_id.substring(0, ampersandPosition);
+            let videoId = item.source.url.split('v=')[1];
+            let amp = videoId.indexOf('&');
+            if (amp != -1) {
+              videoId = videoId.substring(0, amp);
             }
-            sourceArray.push(`https://www.youtube.com/embed/${video_id}`)
+            sourceArray.push(`https://www.youtube.com/embed/${videoId}`)
             this.setState({ sources: sourceArray})
           }
         }
