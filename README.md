@@ -2,7 +2,7 @@ up and running here:
 
 https://mixxxtape.herokuapp.com
 
-to use your own are.a channel add the channel name to end of the url
+to use your own are.na channel add the channel name to end of the url
 
 for example
 
