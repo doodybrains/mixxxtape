@@ -25,7 +25,7 @@ class App extends Component {
       <div className="App">
         <h1>m i x t a p e</h1>
         <p>{sources.length} tracks</p>
-        <div class="videos">
+        <div className="videos">
           {videoSrcs.map((src, i) => {
             return(
               <video width="400" controls>
@@ -42,7 +42,7 @@ class App extends Component {
     const {sources, titles} = this.state;
     const sourceArray = sources.slice();
 
-    axios.get(`http://api.are.na/v2/channels/${mixtapeChannel}/contents`).then((response) => {
+    axios.get(`https://api.are.na/v2/channels/${mixtapeChannel}/contents`).then((response) => {
       const res = response.data.contents;
 
       res.map((item) => {
