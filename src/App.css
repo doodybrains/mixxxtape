@@ -16,18 +16,20 @@ body {
 .videos {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   padding: 30px;
   flex-wrap: wrap;
 }
 
-.videos video {
+.videos iframe {
   width: 100%;
+
 }
 
 @media screen and (min-width: 768px) {
-  .videos video {
-    width: 33.33%;
+  .videos iframe {
+    padding: 20px;
+    width: 25%;
   }
 }

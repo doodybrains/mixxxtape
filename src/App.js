@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
+import {withRouter} from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
-
-const mixtapeChannel = "mixtape-1509221468";
 
 class App extends Component {
   constructor() {
@@ -23,14 +22,12 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>m i x t a p e</h1>
+        <h1>m i x t a p e [youtube only]</h1>
         <p>{sources.length} tracks</p>
         <div className="videos">
-          {videoSrcs.map((src, i) => {
+          {sources.map((src, i) => {
             return(
-              <video key={i} width="400" controls>
-                <source src={src} type="video/mp4" />
-              </video>
+              <iframe src={src} frameBorder="0"></iframe>
             );
           })}
         </div>
@@ -41,42 +38,32 @@ class App extends Component {
   getSrc() {
     const {sources} = this.state;
     const sourceArray = sources.slice();
+    let mixtapeChannel = "/mixtape-1509221468";
 
-    axios.get(`https://api.are.na/v2/channels/${mixtapeChannel}/contents`).then((response) => {
+    if (this.props.location.pathname !== '/') {
+      mixtapeChannel = this.props.location.pathname;
+    }
+
+    axios.get(`https://api.are.na/v2/channels${mixtapeChannel}/contents`).then((response) => {
       const res = response.data.contents;
 
       res.map((item) => {
-        sourceArray.push(item.source.url)
-        this.setState({ sources: sourceArray})
+        if (item.source) {
+          if (item.source.url.match(/youtube\.com/)) {
+            let video_id = item.source.url.split('v=')[1];
+            let ampersandPosition = video_id.indexOf('&');
+            if(ampersandPosition != -1) {
+              video_id = video_id.substring(0, ampersandPosition);
+            }
+            sourceArray.push(`https://www.youtube.com/embed/${video_id}`)
+            this.setState({ sources: sourceArray})
+          }
+        }
       })
 
       this.getVideoSrcs();
     }).catch(error => console.error(error))
   }
-
-  getVideoSrcs() {
-    const {sources, videoSrcs} = this.state;
-    const videoArray = videoSrcs.slice();
-    var config = {headers: {'Content-Type': 'application/json'}};
-
-    sources.map((source, i) => {
-      axios.get(`https://mixtaaape.herokuapp.com/api/info?url=${source}&flatten=false`, config).then((response) => 	{
-        const res = response.data.info.formats;
-
-        res.map(function(value, index) {
-          if (value.ext === 'mp4') {
-            videoArray.push(value.url)
-          }
-        });
-
-        let newArr = videoArray.filter((_,i) => {
-          return _.indexOf("gir,clen,lmt,dur") < 0
-        });
-
-        this.setState({ videoSrcs: newArr })
-      }).catch(error => console.error(error))
-    })
-  }
 }
 
-export default App;
+export default withRouter(App);
