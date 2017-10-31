@@ -15,5 +15,7 @@ accepting PRs
 **built w/ create-react-app + are.na api
 
 to run locally:
-npm install
-npm run start
+
+```npm install```
+
+```npm run start```
