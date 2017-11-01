@@ -11,15 +11,18 @@ body {
 .App {
   text-align: center;
   font-family: 'Rubik', sans-serif;
-  padding: 30px 0px;
+  padding: 20px 0px;
 }
 
 h1 {
-  margin: 0 auto 10px auto;
+  margin: 0 auto 5px auto;
+  font-size: 1.5em;
+  letter-spacing: .09em;
 }
 
 p {
   margin: 0 auto;
+  font-size: .75em;
 }
 
 .videos {
@@ -27,7 +30,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 30px;
+  padding: 20px 10px 10px 10px;
   width: 100%;
 }
 
@@ -35,42 +38,61 @@ p {
   height: 200px;
   position: relative;
   width: 100%;
+  margin-bottom: 2%;
 }
 
-.videos .video .frame{
+.videos .video .frame {
   height: 100%;
   position: relative;
   width: 100%;
 }
 
+.videos .video .media-player {
+  background: yellow;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 0px;
+  overflow: hidden;
+}
+
 .videos .video .overlay {
   -webkit-appearance: none;
-  height: 90%;
+  height: 100%;
   left: 0;
   margin: 0 auto;
   object-fit: contain;
   position: absolute;
   right: 0;
   top: 0;
-  width: 90%;
+  width: 100%;
   z-index: 12;
 }
 
+input[type="checkbox"] {
+  border: none;
+  border-radius: 0;
+}
+
 input[type="checkbox"] + label {
+  align-items: center;
   background: yellow;
+  color: yellow;
   display: block;
-  height: 90%;
+  display: flex;
+  height: 101%;
+  justify-content: center;
   left: 0;
   margin: 0 auto;
   position: absolute;
   right: 0;
-  top: 0;
-  width: 91%;
+  top: 0px;
+  width: 100%;
   z-index: 11;
-  color: yellow;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 30px;
 }
 
 input[type="checkbox"]:focus {
@@ -82,19 +104,38 @@ input[type="checkbox"]:checked + label {
 }
 
 .videos .video iframe {
-  height: 90%;
+  height: 80%;
   left: 0;
+  margin: 0 auto;
   object-fit: contain;
   position: absolute;
   right: 0;
-  width: 90%;
   top: 0;
-  margin: 0 auto;
+  width: 90%;
   z-index: 10;
 }
 
+@media screen and (min-width: 460px) {
+  .videos .video {
+    width: 49%;
+  }
+}
+@media screen and (min-width: 580px) {
+  .videos .video {
+    width: 32%;
+    margin-bottom: 1%;
+  }
+}
 @media screen and (min-width: 768px) {
   .videos .video {
-    width: 20%;
+    width: 24%;
+  }
+  .videos {
+    padding: 30px;
+  }
+}
+@media screen and (min-width: 1180px) {
+  .videos .video {
+    width: 19%;
   }
 }
