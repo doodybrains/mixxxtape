@@ -11,7 +11,7 @@ body {
 .App {
   text-align: center;
   font-family: 'Rubik', sans-serif;
-  padding: 20px 0px;
+  padding: 25px 0 0 0;
 }
 
 h1 {
@@ -29,16 +29,15 @@ p {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 20px 10px 10px 10px;
+  justify-content: flex-start;
+  padding: 12px 15px 15px 15px;
   width: 100%;
 }
 
 .videos .video {
-  height: 200px;
+  height: 150px;
   position: relative;
-  width: 100%;
-  margin-bottom: 2%;
+  width: 50%;
 }
 
 .videos .video .frame {
@@ -92,7 +91,7 @@ input[type="checkbox"] + label {
   top: 0px;
   width: 100%;
   z-index: 11;
-  padding: 30px;
+  border: 15px solid white;
 }
 
 input[type="checkbox"]:focus {
@@ -117,25 +116,25 @@ input[type="checkbox"]:checked + label {
 
 @media screen and (min-width: 460px) {
   .videos .video {
-    width: 49%;
+    width: 50%;
+    height: 175px;
   }
 }
 @media screen and (min-width: 580px) {
   .videos .video {
-    width: 32%;
-    margin-bottom: 1%;
+    width: 33.33%;
+    height: 200px;
   }
 }
 @media screen and (min-width: 768px) {
   .videos .video {
-    width: 24%;
-  }
-  .videos {
-    padding: 30px;
+    width: 25%;
+    height: 220px;
   }
 }
 @media screen and (min-width: 1180px) {
   .videos .video {
-    width: 19%;
+    width: 20%;
+    height: 230px;
   }
 }
