@@ -74,6 +74,8 @@ p {
 input[type="checkbox"] {
   border: none;
   border-radius: 0;
+  background: transparent;
+  cursor: pointer;
 }
 
 input[type="checkbox"] + label {
@@ -90,6 +92,7 @@ input[type="checkbox"] + label {
   right: 0;
   top: 0px;
   width: 100%;
+  padding: 30px;
   z-index: 11;
   border: 15px solid white;
 }
