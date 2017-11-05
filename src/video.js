@@ -24,11 +24,11 @@ class Video extends Component {
           width="80%"
           id={`player-${currentId}`}
           url={url}
-          onEnded={this.onEnd.bind(this, currentId)}
+          onEnded={this.onEnd(currentId)}
           playing={playing} />
 
         <input
-          id={`${currentId}-checkbox`} type="checkbox" onClick={this.vidPlaying.bind(this, currentId)}
+          id={`${currentId}-checkbox`} type="checkbox" onClick={this.vidPlaying(currentId)}
           className="overlay" />
 
         <label>{title}</label>
@@ -36,8 +36,7 @@ class Video extends Component {
     );
   }
 
-  vidPlaying(i) {
-    const clicked = document.getElementById(i);
+  vidPlaying = (i) => (e) => {
     const checkbox = document.getElementById(i+"-checkbox");
 
     if (checkbox.checked === true) {
@@ -47,7 +46,7 @@ class Video extends Component {
     }
   }
 
-  onEnd(last) {
+  onEnd = (last) => (e) => {
     const next = last + 1;
     const checkboxlast = document.getElementById(last+"-checkbox");
     const checkboxnext = document.getElementById(next+"-checkbox");

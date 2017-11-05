@@ -5,8 +5,8 @@ import axios from 'axios';
 import Video from './video.js';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       sources: []
@@ -42,7 +42,7 @@ class App extends Component {
     );
   }
 
-  getSrc() {
+  getSrc = () => {
     const {sources} = this.state;
     const sourceArray = sources.slice();
     let mixtapeChannel = "/mixtape-1509221468";
@@ -61,6 +61,7 @@ class App extends Component {
             this.setState({ sources: sourceArray});
           }
         }
+        return false;
       })
     }).catch(error => console.error(error))
   }
