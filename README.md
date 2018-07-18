@@ -6,11 +6,13 @@ to use your own are.na channel add the channel name to end of the url
 
 for example
 
-```https://mixxxtape.herokuapp.com/#/name-of-channel```
+```https://mixxxtape-diizfnuixv.now.sh/#/name-of-channel```
 
-^^^ make sure to refresh ^^^
+^^^ make sure to refresh the page ^^^
 
-accepting PRs
+
+
+accepting PRs !
 
 **built w/ create-react-app + are.na api
 
