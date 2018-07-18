@@ -1,6 +1,6 @@
 work in progress up and running here:
 
-https://mixxxtape.herokuapp.com
+https://mixxxtape-diizfnuixv.now.sh/#/
 
 to use your own are.na channel add the channel name to end of the url
 
