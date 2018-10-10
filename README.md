@@ -1,12 +1,12 @@
 work in progress up and running here:
 
-https://mixxxtape-diizfnuixv.now.sh/#/
+https://doodybrains.github.io/mixxxtape/#/
 
 to use your own are.na channel add the channel name to end of the url
 
 for example
 
-```https://mixxxtape-diizfnuixv.now.sh/#/name-of-channel```
+```https://doodybrains.github.io/mixxxtape/#/name-of-channel```
 
 ^^^ make sure to refresh the page ^^^
 
