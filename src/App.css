@@ -2,6 +2,7 @@ html,
 body {
   box-sizing: border-box;
   margin: 0;
+  background: hotpink;
 }
 
 *, *:before, *:after {
@@ -47,7 +48,7 @@ p {
 }
 
 .videos .video .media-player {
-  background: yellow;
+  background: mediumpurple;
   height: 100%;
   position: absolute;
   width: 100%;
@@ -80,8 +81,8 @@ input[type="checkbox"] {
 
 input[type="checkbox"] + label {
   align-items: center;
-  background: yellow;
-  color: yellow;
+  background: mediumpurple;
+  color: mediumpurple;
   display: block;
   display: flex;
   height: 101%;
@@ -94,7 +95,7 @@ input[type="checkbox"] + label {
   width: 100%;
   padding: 30px;
   z-index: 11;
-  border: 15px solid white;
+  border: 15px solid hotpink;
 }
 
 input[type="checkbox"]:focus {
