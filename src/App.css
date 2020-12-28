@@ -48,7 +48,7 @@ p {
 }
 
 .videos .video .media-player {
-  background: mediumpurple;
+  background: black;
   height: 100%;
   position: absolute;
   width: 100%;
@@ -81,8 +81,8 @@ input[type="checkbox"] {
 
 input[type="checkbox"] + label {
   align-items: center;
-  background: mediumpurple;
-  color: mediumpurple;
+  background: black;
+  color: black;
   display: block;
   display: flex;
   height: 101%;
