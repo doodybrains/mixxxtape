@@ -93,9 +93,10 @@ input[type="checkbox"] + label {
   right: 0;
   top: 0px;
   width: 100%;
-  padding: 30px;
+  padding: 50px;
   z-index: 11;
   border: 15px solid snow;
+  font-size: .675em;
 }
 
 input[type="checkbox"]:focus {
